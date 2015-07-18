@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #E8755C;
+    height: 100%;
+    width: 100%;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.virtualmark {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1em;
+    font-family: 'Menlo';
+}
+
+.virtualmark > h2 {
+    font-family: 'Helvetica';
+    font-weight: 300;
+    padding: 1em;
+    width: 120px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+    clear: both;
+    background-color: white;
+    color: #E8755C;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+}
+
+.virtualmark h2.write-header {
+    background-color: white;
+    border: 2px solid #E8755C;
+    color: #E8755C;
+}
+
+.virtualmark h2.read-header {
+    background-color: #E8755C;
+    border: 2px solid white;
+    color: white;
+}
+
+.view-toggle {
+    display: inline-block;
+    float: left;
+    clear: both;
+    width: 120px;
+    color: white;
+    font-size: 14px;
+    border: 2px solid white;
+    box-shadow: none;
+    cursor: pointer;
+    background-color: #E8755C;
+    transition: all 0.15s ease;
+}
+
+.view-toggle:focus {
+    outline: 0;
+}
+
+.view-toggle:hover {
+    color: #E8755C;
+    background-color: white;
+}
+
+.view {
+    width: 70%;
+    height: 100%;
+    text-align: left;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+
+.read h1, .read h2 {
+    text-align: center;
+}
+
+.markdown-textarea {
+    background-color: #E8755C;
+    display: block;
+    color: white;
+    padding: 1em;
+    border: none;
+    /* box-shadow: 0 1px 5px 1px rgba( 0, 0, 0, 0.1 ); */
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    font-family: 'Menlo';
+    font-size: 16px;
+    resize: none;
+}
+
+textarea::-webkit-input-placeholder{
+    width: 5px;
+}
+
+.markdown-textarea:focus {
+    outline: 0;
+}
+
+.read {
+    display: block;
+    color: white;
+    margin: 0 auto;
+    width: 100%;
+    height: 75%;
+    font-family: 'Menlo';
+    font-size: 16px;
+}
