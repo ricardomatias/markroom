@@ -3,24 +3,21 @@
 const path = require('path');
 
 const electron = require('app');
-const window = require('electron-window');
+const browserWindow = require('electron-window');
 
 // report crashes to the Electron project
 require('crash-reporter').start();
-
-// adds debug features like hotkeys for triggering dev tools and reload
-require('electron-debug')();
 
 var mainWindow;
 
 function onReady(win) {
   const menus = require('./app/menus');
 
-  menus(electron, win);
+  menus(win);
 }
 
 function createWin(callback) {
-  mainWindow = window.createWindow({
+  mainWindow = browserWindow.createWindow({
     resizable: true,
     title: 'Markroom'
   });
@@ -32,6 +29,8 @@ function createWin(callback) {
   mainWindow.showUrl(indexPath, function () {
     callback(mainWindow);
   });
+
+  return mainWindow;
 }
 
 electron.on('window-all-closed', function () {
@@ -47,8 +46,6 @@ electron.on('activate-with-no-open-windows', function () {
 });
 
 electron.on('ready', function () {
-  console.log(this);
-
 	mainWindow = createWin(onReady);
 });
 

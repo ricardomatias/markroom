@@ -1,9 +1,33 @@
 'use strict';
 
-function menus(app, window) {
-  var Menu = require('menu');
+// Electron Modules
+const Menu = require('menu');
+const dialog = require('dialog');
+
+// Services
+const File = require('./file');
+
+
+function saveFile(title, browserWindow, file) {
+  dialog.showSaveDialog(browserWindow, {
+      title: title,
+      filters: [
+        { name: 'Markdown', extensions: ['md'] },
+      ]
+    }, function(filename) {
+      if (filename) {
+        file.set(filename);
+
+        browserWindow.webContents.send('file.save');
+      }
+  });
+}
+
+function menus(browserWindow) {
 
   var menu = new Menu();
+
+  var file = new File();
 
   var template = [
     {
@@ -45,6 +69,46 @@ function menus(app, window) {
           accelerator: 'Command+Q',
           selector: 'terminate:'
         },
+      ]
+    },
+    {
+      label: 'File',
+      submenu: [
+        {
+          label: 'Open File..',
+          accelerator: 'Command+O',
+          click: function() {
+            dialog.showOpenDialog(browserWindow, {
+                title: 'Open Markdown file',
+                defaultPath: '~/Desktop',
+                properties: ['openFile'],
+                filters: [
+                  { name: 'Markdown', extensions: ['md'] },
+                ]
+              }, function(filenames) {
+                if (filenames) {
+                  file.open(browserWindow, filenames);
+                }
+              });
+          }
+        },{
+          label: 'Save File',
+          accelerator: 'Command+S',
+          click: function() {
+            var filename;
+
+            if ((filename = file.get())) {
+              return browserWindow.webContents.send('file.save');
+            }
+            saveFile('Save file', browserWindow, file);
+          }
+        },{
+          label: 'Save File As..',
+          accelerator: 'Command+Shift+S',
+          click: function() {
+            saveFile('Save file as..', browserWindow, file);
+          }
+        }
       ]
     },
     {
@@ -91,12 +155,16 @@ function menus(app, window) {
         {
           label: 'Reload',
           accelerator: 'Command+R',
-          click: function() { window.reload(); }
+          click: function() {
+            browserWindow.reload();
+          }
         },
         {
           label: 'Toggle DevTools',
-          accelerator: 'Alt+Command+I',
-          click: function() { }
+          accelerator: 'Alt+Command+J',
+          click: function() {
+            browserWindow.toggleDevTools();
+          }
         },
       ]
     },
