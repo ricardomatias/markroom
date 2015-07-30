@@ -1,117 +1,154 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  transition: background-color 0.10s ease, color 0.10s ease;
 }
 
 html, body {
-    background-color: #E8755C;
-    height: 100%;
-    width: 100%;
-    color: white;
-    padding: 0;
-    margin: 0;
+  /*background-color: #E8755C;*/
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* COLOR MODES */
+body.light {
+  background-color: white;
+  color: #333333;
+}
+
+body.dark {
+  background-color: #333333;
+  color: white;
 }
 
 .virtualmark {
-    width: 90%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 1em;
-    font-family: 'Menlo';
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  font-family: 'Menlo';
 }
 
 .virtualmark > h2 {
-    font-family: 'Helvetica';
-    font-weight: 300;
-    padding: 1em;
-    width: 120px;
-    display: inline-block;
-    text-align: center;
-    float: left;
-    clear: both;
-    background-color: white;
-    color: #E8755C;
-    border: none;
-    cursor: pointer;
-    position: fixed;
+  font-family: 'Helvetica';
+  font-weight: 300;
+  padding: 1em;
+  width: 120px;
+  display: inline-block;
+  text-align: center;
+  float: left;
+  clear: both;
+  border: none;
+  cursor: pointer;
+  position: fixed;
 }
 
-.virtualmark h2.write-header {
-    background-color: white;
-    border: 2px solid #E8755C;
-    color: #E8755C;
+body.light .virtualmark h2.write-header {
+  background-color: white;
+  border: 2px solid  #333333;
+  color: #333333;
 }
 
-.virtualmark h2.read-header {
-    background-color: #E8755C;
-    border: 2px solid white;
-    color: white;
+body.light .virtualmark h2.read-header {
+  background-color: #333333;
+  border: 2px solid white;
+  color: white;
+}
+
+body.dark .virtualmark h2.read-header {
+  background-color: white;
+  border: 2px solid  #333333;
+  color: #333333;
+}
+
+body.dark .virtualmark h2.write-header {
+  background-color: #333333;
+  border: 2px solid white;
+  color: white;
 }
 
 .view-toggle {
-    display: inline-block;
-    float: left;
-    clear: both;
-    width: 120px;
-    color: white;
-    font-size: 14px;
-    border: 2px solid white;
-    box-shadow: none;
-    cursor: pointer;
-    background-color: #E8755C;
-    transition: all 0.15s ease;
+  display: inline-block;
+  float: left;
+  clear: both;
+  width: 120px;
+  color: white;
+  font-size: 14px;
+  border: 2px solid white;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: #333333;
+  transition: all 0.15s ease;
 }
 
 .view-toggle:focus {
-    outline: 0;
+  outline: 0;
 }
 
 .view-toggle:hover {
-    color: #E8755C;
-    background-color: white;
+  color: #333333;
+  background-color: white;
 }
 
 .view {
-    width: 70%;
-    height: 100%;
-    text-align: left;
-    padding: 1em;
-    margin: 0 auto;
+  width: 70%;
+  height: 100%;
+  text-align: left;
+  padding: 1em;
+  margin: 0 auto;
 }
 
 
 .read h1, .read h2 {
-    text-align: center;
+  text-align: center;
+}
+
+body.dark .markdown-textarea {
+  background-color: #333333;
+  color: white;
+}
+
+body.light .markdown-textarea {
+  background-color: white;
+  color: #333333;
 }
 
 .markdown-textarea {
-    background-color: #E8755C;
-    display: block;
-    color: white;
-    padding: 1em;
-    border: none;
-    /* box-shadow: 0 1px 5px 1px rgba( 0, 0, 0, 0.1 ); */
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    font-family: 'Menlo';
-    font-size: 16px;
-    resize: none;
+  display: block;
+  padding: 1em;
+  border: none;
+  /* box-shadow: 0 1px 5px 1px rgba( 0, 0, 0, 0.1 ); */
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  font-family: 'Menlo';
+  font-size: 16px;
+  resize: none;
 }
 
 textarea::-webkit-input-placeholder{
-    width: 5px;
+  width: 5px;
 }
 
 .markdown-textarea:focus {
-    outline: 0;
+  outline: 0;
+}
+
+body.light .read {
+  color: #333333;
+}
+
+body.dark .read {
+  color: white;
 }
 
 .read {
-    display: block;
-    color: white;
-    margin: 0 auto;
-    width: 100%;
-    height: 75%;
-    font-family: 'Menlo';
-    font-size: 16px;
+  display: block;
+  color: white;
+  margin: 0 auto;
+  width: 100%;
+  height: 75%;
+  font-family: 'Menlo';
+  font-size: 16px;
 }

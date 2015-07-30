@@ -1,0 +1,405 @@
+.read-view strong {
+    color: #F89523;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.read-view em {
+    color: #D54255;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+/**
+   *
+      Headings
+   *
+   */
+
+
+.read-view h1,
+.read-view h2,
+.read-view h3,
+.read-view h4,
+.read-view h5,
+.read-view h6 {
+    text-rendering: optimizeLegibility;
+    line-height: 1;
+    margin: 0.5rem 0;
+    color: #059CC7;
+}
+
+.read-view h1,
+.read-view h2,
+.read-view h3 {
+    margin-bottom: 2rem;
+}
+
+.read-view h1 {
+    font-size: 2.75rem;
+}
+
+.read-view h2 {
+    font-size: 2.25rem;
+}
+
+.read-view h3 {
+    font-size: 1.75rem;
+}
+
+.read-view h4 {
+    font-size: 1.25rem;
+}
+
+.read-view h5 {
+    font-size: 1.00rem;
+}
+
+.read-view h6 {
+    font-size: 0.85rem;
+}
+
+/**
+   *
+    Paragraphs
+   *
+   */
+
+.read-view p {
+    margin: 0 0 1em;
+}
+
+/**
+   *
+      Block quotes
+   *
+   */
+
+.read-view blockquote {
+    margin: 0 0 1.5em;
+    width: 96%;
+    padding: 0 10px;
+    border-left: 3px solid #ddd;
+    color: #777;
+}
+
+/**
+   *
+    Code Blocks
+   *
+   */
+
+.read-view code {
+    font-family: "inconsolata";
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    box-sizing: border-box;
+    display: inline;
+    font-size: 18px;
+    font-weight: normal;
+    height: auto;
+    line-height: 25.2450008392334px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.read-view pre code {
+    word-wrap: normal;
+    white-space: pre-wrap;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+}
+
+.read-view pre {
+    white-space: pre-wrap;
+    width: 96%;
+    margin-bottom: 24px;
+    overflow: hidden;
+    padding: 3px 10px;
+}
+
+.read-view small {
+    font-size: 65%;
+}
+
+/**
+   *
+      Dictionary Definition
+   *
+   */
+
+.read-view dt {
+    display: inline;
+    font-weight: bold;
+}
+
+.read-view dd {
+    display: block;
+}
+
+/**
+   *
+      Anchors
+   *
+   */
+
+.read-view a {
+    color: #4F82A1;
+    text-decoration: none;
+    padding: 0 0.25em;
+    font-weight: bold;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.read-view a:hover {
+    color: #d04c3f;
+}
+
+.read-view a:hover strong {
+    color: #d04c3f;
+}
+
+.read-view a:hover em {
+    color: #d04c3f;
+}
+
+/**
+   *
+      Horizontal rules
+   *
+   */
+
+.read-view hr {
+    width: 100%;
+    margin: 3em auto;
+    border: 0;
+    color: #eee;
+    background-color: #ccc;
+    height: 1px;
+    -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);
+}
+
+/**
+   *
+      Lists
+   *
+   */
+
+.read-view ol,
+.read-view ul {
+    list-style-position: outside;
+    padding-left: 0;
+    margin-left: 1.5em;
+}
+
+.read-view ol li,
+.read-view ul li {
+    text-align: -webkit-match-parent;
+}
+
+.read-view li p {
+    margin: 0.5em 0 0.5em;
+}
+
+.read-view ol ol,
+.read-view ol ul,
+.read-view ul ul,
+.read-view ul ol {
+    padding-left: 1.5em;
+}
+
+/**
+   *
+      Tables
+   *
+   */
+
+.read-view table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-spacing: 0;
+}
+
+.read-view table th {
+    padding: 3px 10px;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+.read-view table tr {}
+
+.read-view table td {
+    padding: 3px 10px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+/**
+   *
+      Images
+   *
+   */
+
+.read-view img {
+    border: none;
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+}
+
+/**
+   *
+      Marks
+   *
+   */
+
+.read-view mark {
+    background: #fefec0;
+    padding: 1px 3px;
+}
+
+/**
+   *
+      Footnotes
+   *
+   */
+
+.footnote {
+    font-size: 0.8rem;
+    vertical-align: super;
+}
+
+.footnotes ol {
+    font-weight: bold;
+}
+
+.footnotes ol li {
+    text-align: -webkit-match-parent;
+}
+
+.footnotes ol li p {
+    font-weight: normal;
+}
+
+/**
+   *
+      Figures and Captions
+   *
+   */
+
+.read-view caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.read-view figure {
+    display: block;
+    text-align: center;
+}
+
+.read-view figcaption {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Mobile support */
+
+@media only screen and (max-device-width: 1024px) {
+    html {
+        overflow: auto;
+    }
+    #wrapper {
+        overflow: auto;
+        position: relative;
+    }
+}
+
+ /* Printing support.
+@media print {
+* Override all printing colors to match the Light theme.
+    img, pre, blockquote, table, figure {
+        page-break-inside: avoid;
+    }
+    body {
+        background-color: #fff;
+    }
+    #wrapper {
+        position: static;
+        overflow: hidden;
+        color: #000;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .footnotes {
+        page-break-before: always;
+    }
+    #content {
+        margin: 0 auto;
+        padding: 0;
+        width: 98%;
+    }
+    #top-fader, #bottom-fader {
+        display: none;
+    }
+    hr {
+        color: #ddd;
+        background-color: #ddd;
+        -webkit-box-shadow: 0px 1px 0px #ddd;
+    }
+    pre {
+        background-color: transparent;
+        border: 1px solid #ddd;
+    }
+    code {
+        background-color: transparent;
+        border: 1px solid #ddd;
+    }
+    blockquote {
+        border-left: 3px solid #ddd;
+        color: #000;
+    }
+    ol {
+*/
+     /*
+    * Override the list style when printing to ensure list
+    * markers won't get cut.
+        list-style-position: inside;
+        padding-left: 0;
+        margin-left: 0;
+    }
+    table {
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+    table th {
+        background-color: transparent;
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+    table td {
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+    mark {
+        background: transparent;
+        color: #000;
+    }
+    .source {
+        color: #000;
+    }
+}
+    */

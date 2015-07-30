@@ -150,6 +150,79 @@ function menus(browserWindow) {
       ]
     },
     {
+      label: 'Format',
+      submenu: [
+        {
+          label: 'Bold',
+          accelerator: 'Command+B',
+          click: function() {
+            browserWindow.webContents.send('style.bold', 'bold');
+          }
+        },
+        {
+          label: 'Italic',
+          accelerator: 'Command+I',
+          click: function() {
+            browserWindow.webContents.send('style.italic', 'italic');
+          }
+        },
+        {
+          label: 'Code (Inline)',
+          accelerator: 'Command+U',
+          click: function() {
+            browserWindow.webContents.send('style.code.inline', 'code.inline');
+          }
+        },
+        {
+          label: 'Code (Block)',
+          accelerator: 'Command+Shift+U',
+          click: function() {
+            browserWindow.webContents.send('style.code.block', 'code.block');
+          }
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Add Link',
+          accelerator: 'Command+K',
+          click: function() {
+            browserWindow.webContents.send('snippets.link', 'link');
+          }
+        },
+        {
+          label: 'Add Image',
+          accelerator: 'Command+Shift+I',
+          click: function() {
+            browserWindow.webContents.send('snippets.image', 'image');
+          }
+        },
+      ]
+    },
+    {
+      label: 'Selection',
+      submenu: [
+        {
+          label: 'Select All',
+          accelerator: 'Command+A'
+        },
+        {
+          label: 'Select Word',
+          accelerator: 'Command+D',
+          click: function() {
+            browserWindow.webContents.send('selection.word', 'word');
+          }
+        },
+        {
+          label: 'Select Line',
+          accelerator: 'Command+L',
+          click: function() {
+            browserWindow.webContents.send('selection.line', 'line');
+          }
+        },
+      ]
+    },
+    {
       label: 'View',
       submenu: [
         {
@@ -180,6 +253,17 @@ function menus(browserWindow) {
           label: 'Close',
           accelerator: 'Command+W',
           selector: 'performClose:'
+        },
+        {
+          label: 'Fullscreen',
+          accelerator: 'Command+Enter',
+          click: function() {
+            if (browserWindow.isFullScreen()) {
+              return browserWindow.setFullScreen(false);
+            }
+
+            browserWindow.setFullScreen(true);
+          }
         },
         {
           type: 'separator'

@@ -4,6 +4,7 @@ const path = require('path');
 
 const electron = require('app');
 const browserWindow = require('electron-window');
+const shell = require('shell');
 
 // report crashes to the Electron project
 require('crash-reporter').start();
@@ -28,6 +29,12 @@ function createWin(callback) {
 
   mainWindow.showUrl(indexPath, function () {
     callback(mainWindow);
+  });
+
+  mainWindow.webContents.on('will-navigate', function(evt, url) {
+    evt.preventDefault();
+
+    shell.openExternal(url);
   });
 
   return mainWindow;

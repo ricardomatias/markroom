@@ -6,16 +6,18 @@
 
 Takes a glob and represents a file structure. Can be piped to plugins. (*takes a **glob** and returns an input stream*)
 
-        gulp.src('./client/templates/*.jade')
-            .pipe(jade())
-            .pipe(minify())
-            .pipe(gulp.dest('./build/minified_templates'));
+gulp.src('./client/templates/*.jade')
+.pipe(jade())
+.pipe(minify())
+.pipe(gulp.dest('./build/minified_templates'));
 
 ##### options.read
 
-Type: ´Boolean´ Default: ´true´
+Type: `Boolean` Default: `true`
 
-Setting this to ´false´ will return ´file.contents´ as null and not read the file at all.
+Setting this to `false` will return `file.contents` as null and not read the file at all.
+
+![Magritte](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg) 
 
 ---
 
@@ -68,5 +70,4 @@ Names of task(s) to run when a file changes, added with `gulp.task()`
         });
         
 ### Learning Gulp  
-
 
