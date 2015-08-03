@@ -141,11 +141,6 @@ function menus(browserWindow) {
           label: 'Paste',
           accelerator: 'Command+V',
           selector: 'paste:'
-        },
-        {
-          label: 'Select All',
-          accelerator: 'Command+A',
-          selector: 'selectAll:'
         }
       ]
     },
@@ -153,49 +148,25 @@ function menus(browserWindow) {
       label: 'Format',
       submenu: [
         {
-          label: 'Bold',
-          accelerator: 'Command+B',
-          click: function() {
-            browserWindow.webContents.send('style.bold', 'bold');
-          }
+          label: 'Bold                      ⌘B'
         },
         {
-          label: 'Italic',
-          accelerator: 'Command+I',
-          click: function() {
-            browserWindow.webContents.send('style.italic', 'italic');
-          }
+          label: 'Italic                      ⌘I'
         },
         {
-          label: 'Code (Inline)',
-          accelerator: 'Command+U',
-          click: function() {
-            browserWindow.webContents.send('style.code.inline', 'code.inline');
-          }
+          label: 'Code (Inline)          ⌘U'
         },
         {
-          label: 'Code (Block)',
-          accelerator: 'Command+Shift+U',
-          click: function() {
-            browserWindow.webContents.send('style.code.block', 'code.block');
-          }
+          label: 'Code (Block)         ⌘⇧U'
         },
         {
           type: 'separator'
         },
         {
-          label: 'Add Link',
-          accelerator: 'Command+K',
-          click: function() {
-            browserWindow.webContents.send('snippets.link', 'link');
-          }
+          label: 'Add Link                ⌘K'
         },
         {
-          label: 'Add Image',
-          accelerator: 'Command+Shift+I',
-          click: function() {
-            browserWindow.webContents.send('snippets.image', 'image');
-          }
+          label: 'Add Image (URL)   ⌘⇧K'
         },
       ]
     },
@@ -203,22 +174,13 @@ function menus(browserWindow) {
       label: 'Selection',
       submenu: [
         {
-          label: 'Select All',
-          accelerator: 'Command+A'
+          label: 'Select All        ⌘A',
         },
         {
-          label: 'Select Word',
-          accelerator: 'Command+D',
-          click: function() {
-            browserWindow.webContents.send('selection.word', 'word');
-          }
+          label: 'Select Word   ⌘D',
         },
         {
-          label: 'Select Line',
-          accelerator: 'Command+L',
-          click: function() {
-            browserWindow.webContents.send('selection.line', 'line');
-          }
+          label: 'Select Line     ⌘L',
         },
       ]
     },

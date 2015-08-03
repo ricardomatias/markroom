@@ -17,7 +17,7 @@ Type: `Boolean` Default: `true`
 
 Setting this to `false` will return `file.contents` as null and not read the file at all.
 
-![Magritte](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg) 
+https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg
 
 ---
 
@@ -39,13 +39,13 @@ The path (folder) to write files to.
 
 #### gulp.task(name[, deps], fn)  
 
-Define a task using [Orchestrator](https://github.com/robrich/orchestrator).
+Define a task using https://github.com/robrich/orchestrator.
 
         gulp.task('somename', function() {
           // Do stuff
         });
 
-more on this in [Gulp’s API](https://github.com/gulpjs/gulp/blob/master/docs/API.md#name)
+more on this in https://github.com/gulpjs/gulp/blob/master/docs/API.md#name
 
 ---
 
@@ -57,7 +57,7 @@ A single glob or array of globs that indicate which files to watch for changes.
 
 **opts**  
 Type: `Object`  
-Options, that are passed to [gaze](https://github.com/shama/gaze).
+Options, that are passed to https://github.com/shama/gaze.
 
 **tasks**
 Type: `Array`

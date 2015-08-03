@@ -23,55 +23,95 @@ body.dark {
 }
 
 .virtualmark {
-  width: 90%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
+  display: flex;
   padding: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  align-items: stretch;
   font-family: 'Menlo';
 }
 
-.virtualmark > h2 {
+.view {
+  height: 100vh;
+  flex: 2 0 50%;
+  text-align: left;
+  padding: 1em;
+  margin-right: 215px;
+}
+
+.sidebar {
+  flex: 1 0 auto;
+  height: 100vh;
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  align-items: stretch;
+}
+
+.items {
+  flex: 2 0 auto;
+}
+
+.buttons {
+  align-self: center;
+}
+
+
+.buttons > * {
   font-family: 'Helvetica';
   font-weight: 300;
-  padding: 1em;
   width: 120px;
-  display: inline-block;
+  flex: 2 0 auto;
   text-align: center;
-  float: left;
-  clear: both;
   border: none;
   cursor: pointer;
-  position: fixed;
+  margin: 0;
 }
 
-body.light .virtualmark h2.write-header {
+body.light .sidebar .write-header {
   background-color: white;
   border: 2px solid  #333333;
   color: #333333;
 }
 
-body.light .virtualmark h2.read-header {
+body.light .sidebar .read-header {
   background-color: #333333;
   border: 2px solid white;
   color: white;
 }
 
-body.dark .virtualmark h2.read-header {
+body.dark .sidebar .read-header {
   background-color: white;
   border: 2px solid  #333333;
   color: #333333;
 }
 
-body.dark .virtualmark h2.write-header {
+body.dark .sidebar .write-header {
   background-color: #333333;
   border: 2px solid white;
   color: white;
+}
+
+.sidebar h2.read-header, .sidebar h2.write-header {
+  margin: 0;
+  padding: 0.75em;
+  border-top: none !important;
+}
+
+.color-mode {
+  padding: 0.5em;
 }
 
 .view-toggle {
   display: inline-block;
-  float: left;
-  clear: both;
   width: 120px;
   color: white;
   font-size: 14px;
@@ -80,6 +120,7 @@ body.dark .virtualmark h2.write-header {
   cursor: pointer;
   background-color: #333333;
   transition: all 0.15s ease;
+  margin: 0 auto;
 }
 
 .view-toggle:focus {
@@ -90,15 +131,6 @@ body.dark .virtualmark h2.write-header {
   color: #333333;
   background-color: white;
 }
-
-.view {
-  width: 70%;
-  height: 100%;
-  text-align: left;
-  padding: 1em;
-  margin: 0 auto;
-}
-
 
 .read h1, .read h2 {
   text-align: center;
@@ -120,10 +152,11 @@ body.light .markdown-textarea {
   border: none;
   /* box-shadow: 0 1px 5px 1px rgba( 0, 0, 0, 0.1 ); */
   margin: 0 auto;
+  caret-color: red;
   width: 100%;
   height: 100%;
   font-family: 'Menlo';
-  font-size: 16px;
+  font-size: 18px;
   resize: none;
 }
 
