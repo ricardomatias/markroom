@@ -44,7 +44,7 @@ body.dark {
   margin-right: 215px;
 }
 
-.sidebar {
+.leftbar {
   flex: 1 0 auto;
   height: 100vh;
   display: flex;
@@ -54,6 +54,17 @@ body.dark {
   justify-content: space-around;
   align-content: space-between;
   align-items: stretch;
+}
+
+.rightbar {
+  position: fixed;
+  right: 1%;
+}
+
+.rightbar .counts {
+  color: #444;
+  opacity: 0.35;
+  font-size: 12px;
 }
 
 .items {
@@ -76,31 +87,31 @@ body.dark {
   margin: 0;
 }
 
-body.light .sidebar .write-header {
+body.light .leftbar .write-header {
   background-color: white;
   border: 2px solid  #333333;
   color: #333333;
 }
 
-body.light .sidebar .read-header {
+body.light .leftbar .read-header {
   background-color: #333333;
   border: 2px solid white;
   color: white;
 }
 
-body.dark .sidebar .read-header {
+body.dark .leftbar .read-header {
   background-color: white;
   border: 2px solid  #333333;
   color: #333333;
 }
 
-body.dark .sidebar .write-header {
+body.dark .leftbar .write-header {
   background-color: #333333;
   border: 2px solid white;
   color: white;
 }
 
-.sidebar h2.read-header, .sidebar h2.write-header {
+.leftbar h2.read-header, .leftbar h2.write-header {
   margin: 0;
   padding: 0.75em;
   border-top: none !important;
