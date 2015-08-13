@@ -21,7 +21,7 @@ gulp.task('serve', function () {
 });
 
 gulp.task('babel', function() {
-  return gulp.src('app/index.js')
+  return gulp.src('lib/main.js')
              .pipe(babel())
              .pipe(rename('browser.js'))
              .pipe(gulp.dest('app'));

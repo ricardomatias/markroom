@@ -8,6 +8,8 @@ const App = require('./lib/app');
 
 const domReady = require('domReady');
 
+const eventBus = require('./lib/services/eventBus');
+
 delegator();
 
 /*
@@ -30,7 +32,7 @@ domReady(function() {
 
   global.app = app;
 
-  app.on('changed', function(component) {
+  eventBus.on('changed', function(component) {
     raf(function() {
       component.update();
     });

@@ -23,7 +23,7 @@ function saveFile(title, browserWindow, file) {
   });
 }
 
-function menus(browserWindow) {
+function menus(browserWindow, DESKTOP_PATH) {
 
   var menu = new Menu();
 
@@ -80,7 +80,7 @@ function menus(browserWindow) {
           click: function() {
             dialog.showOpenDialog(browserWindow, {
                 title: 'Open Markdown file',
-                defaultPath: '~/Desktop',
+                defaultPath: DESKTOP_PATH,
                 properties: ['openFile'],
                 filters: [
                   { name: 'Markdown', extensions: ['md'] },

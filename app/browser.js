@@ -1,9 +1,11 @@
-const domReady = require('domReady');
-const raf = require('raf');
+'use strict';
 
-const delegator = require('dom-delegator');
+var domReady = require('domReady');
+var raf = require('raf');
 
-const AppConstructor = require('./app');
+var delegator = require('dom-delegator');
+
+var AppConstructor = require('./app');
 
 delegator();
 
@@ -22,22 +24,18 @@ delegator();
     Icon lights up when the text changed.
  */
 
-domReady(function() {
+domReady(function () {
     'use strict';
 
     var app = new AppConstructor('body');
 
     global.app = app;
 
-    app.on('changed', function(component) {
-        raf(function() {
+    app.on('changed', function (component) {
+        raf(function () {
             component.update();
         });
     });
 
     app.run();
 });
-
-
-
-

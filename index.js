@@ -11,10 +11,10 @@ require('crash-reporter').start();
 
 var mainWindow;
 
-function onReady(win) {
+function onReady(win, desktopPath) {
   const menus = require('./app/menus');
 
-  menus(win);
+  menus(win, desktopPath);
 }
 
 function createWin(callback) {
@@ -28,7 +28,7 @@ function createWin(callback) {
   var indexPath = path.resolve(__dirname, 'index.html');
 
   mainWindow.showUrl(indexPath, function () {
-    callback(mainWindow);
+    callback(mainWindow, electron.getPath('userDesktop'));
   });
 
   mainWindow.webContents.on('will-navigate', function(evt, url) {
@@ -39,6 +39,10 @@ function createWin(callback) {
 
   return mainWindow;
 }
+
+electron.on('open-url', function(evt) {
+  evt.preventDefault();
+});
 
 electron.on('window-all-closed', function () {
 	if (process.platform !== 'darwin') {
@@ -52,7 +56,7 @@ electron.on('activate-with-no-open-windows', function () {
 	}
 });
 
-electron.on('ready', function () {
+electron.on('ready', function (evt) {
 	mainWindow = createWin(onReady);
 });
 

@@ -34,11 +34,7 @@
 .read-view h3 {
     margin-bottom: 2rem;
 }
-
-.read-view h1 {
-    font-size: 2.75rem;
-}
-
+/*
 .read-view h2 {
     font-size: 2.25rem;
 }
@@ -58,7 +54,7 @@
 .read-view h6 {
     font-size: 0.85rem;
 }
-
+*/
 /**
    *
     Paragraphs
@@ -107,6 +103,8 @@
     padding-top: 2px;
     white-space: nowrap;
     width: auto;
+    background-color: #C7E1D5;
+    color: #08844E;
 }
 
 .read-view pre code {
