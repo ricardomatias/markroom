@@ -25,7 +25,6 @@ delegator();
  */
 
 domReady(function () {
-    'use strict';
 
     var app = new AppConstructor('body');
 
