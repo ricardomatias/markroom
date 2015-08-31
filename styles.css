@@ -1,17 +1,14 @@
 * {
   box-sizing: border-box;
-  transition: background-color 0.10s ease, color 0.10s ease;
 }
 
 html, body {
   /*background-color: #E8755C;*/
-  height: 100%;
-  width: 100%;
-  padding: 0;
   margin: 0;
 }
 
-/* COLOR MODES */
+/********** COLOR MODES **********/
+
 body.light {
   background-color: white;
   color: #333333;
@@ -22,10 +19,9 @@ body.dark {
   color: white;
 }
 
+/********** MAIN **********/
+
 .virtualmark {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -41,8 +37,31 @@ body.dark {
   text-align: left;
 }
 
+/********** RIGHTBAR **********/
+
+.rightbar {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  z-index: 10;
+  transition: background-color 0.10s ease, color 0.10s ease;
+}
+
+body.light .rightbar .counts {
+  color: #444;
+  opacity: 0.35;
+  font-size: 12px;
+}
+
+body.dark .rightbar .counts {
+  color: #DCDCDC;
+  opacity: 0.35;
+  font-size: 12px;
+}
+
+/********** LEFTBAR **********/
+
 .leftbar {
-  visibility: hidden;
   width: 20vw;
   height: 100vh;
   display: flex;
@@ -51,55 +70,14 @@ body.dark {
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-between;
-  align-items: stretch;
+  align-items: flex-start;
+  overflow: scroll;
 }
 
-.rightbar {
-  position: fixed;
-  top: 2%;
-  right: 2%;
-  z-index: 10;
-}
-
-.read-view {
-  padding: 2em 20vw 1em 1em;
-}
-
-.images {
-  display: flex;
-  flex-direction: column;
-}
-
-.images .image {
-  flex: 1;
-  min-height: 100%;
-  min-width: 100%;
-  margin: 1em 0;
-}
-
-.rightbar .counts {
-  color: #444;
-  opacity: 0.35;
-  font-size: 12px;
-}
-
-.items {
-  flex: 1;
-}
-
-.buttons {
-  align-self: center;
-}
-
-.buttons > * {
-  font-family: 'Helvetica';
-  font-weight: 300;
-  width: 120px;
-  flex: 2 0 auto;
-  text-align: center;
-  border: none;
-  cursor: pointer;
+.leftbar h2.read-header, .leftbar h2.write-header {
   margin: 0;
+  padding: 0.75em;
+  border-top: none !important;
 }
 
 body.light .leftbar .write-header {
@@ -126,10 +104,34 @@ body.dark .leftbar .write-header {
   color: white;
 }
 
-.leftbar h2.read-header, .leftbar h2.write-header {
+.buttons > * {
+  font-family: 'Helvetica';
+  font-weight: 300;
+  width: 120px;
+  flex: 2 0 auto;
+  text-align: center;
+  border: none;
+  cursor: pointer;
   margin: 0;
-  padding: 0.75em;
-  border-top: none !important;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.images .image {
+  margin: 1em 0;
+  flex: 0 2 auto;
+}
+
+.image img {
+  width: 100%;
+}
+
+.items {
+  flex: 1;
 }
 
 .color-mode {
@@ -158,21 +160,20 @@ body.dark .leftbar .write-header {
   background-color: white;
 }
 
-.read h1 {
-  text-align: center;
-}
 
-body.dark .markdown-textarea {
+/********** EDITOR **********/
+
+body.dark .editor {
   background-color: #333333;
   color: white;
 }
 
-body.light .markdown-textarea {
+body.light .editor {
   background-color: white;
   color: #333333;
 }
 
-.markdown-textarea {
+.editor {
   display: block;
   padding: 2em 18vw 1em 1em;
   border: none;
@@ -189,8 +190,14 @@ textarea::-webkit-input-placeholder{
   width: 5px;
 }
 
-.markdown-textarea:focus {
+.editor:focus {
   outline: 0;
+}
+
+/********** READ **********/
+
+.read-view {
+  padding: 2em 20vw 1em 1em;
 }
 
 body.light .read {
@@ -202,11 +209,31 @@ body.dark .read {
 }
 
 .read {
-  display: block;
   color: white;
-  margin: 0 auto;
-  width: 100%;
   height: 75%;
-  font-family: 'Menlo';
+  font-family: Helvetica;
   font-size: 16px;
+}
+
+.read a {
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+body.dark .read a {
+  color: #CACACA;
+  font-style: italic;
+}
+
+body.dark .read a:hover {
+  color: #EEE;
+  font-style: italic;
+}
+
+.read h1 {
+  text-align: center;
+}
+
+.read img {
+  max-width: 100%;
 }

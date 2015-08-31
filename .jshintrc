@@ -9,5 +9,11 @@
 	"noarg": true,
 	"undef": true,
 	"unused": "vars",
-	"strict": true
+	"strict": true,
+	"globals": {
+		"beforeEach": true,
+		"describe": true,
+		"it": true,
+		"expect": true
+	}
 }

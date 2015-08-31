@@ -174,33 +174,52 @@ function menus(browserWindow, DESKTOP_PATH) {
       label: 'Selection',
       submenu: [
         {
-          label: 'Select All        ⌘A',
+          label: 'Select All',
+          accelerator: 'CMD+A',
+          selector: 'selectAll:'
         },
         {
-          label: 'Select Word   ⌘D',
+          label: 'Select Word',
+          accelerator: 'CMD+D',
+          selector: 'selectWord:'
         },
         {
-          label: 'Select Line     ⌘L',
-        },
+          label: 'Select Line',
+          accelerator: 'CMD+L',
+          selector: 'selectLine:'
+        }
       ]
     },
     {
       label: 'View',
       submenu: [
         {
-          label: 'Reload',
-          accelerator: 'Command+R',
+          label: 'Show Preview',
+          accelerator: 'Alt+Tab',
           click: function() {
-            browserWindow.reload();
+            browserWindow.webContents.send('view.toggle');
           }
         },
         {
-          label: 'Toggle DevTools',
-          accelerator: 'Alt+Command+J',
+          type: 'separator'
+        },
+        {
+          label: 'Toggle Dark/Light Mode',
+          accelerator: 'Alt+Shift+Tab',
+          click: function() {
+            browserWindow.webContents.send('color.toggle');
+          }
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Toggle Developer Tools',
+          accelerator: 'Cmd+Alt+J',
           click: function() {
             browserWindow.toggleDevTools();
           }
-        },
+        }
       ]
     },
     {

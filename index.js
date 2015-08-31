@@ -59,4 +59,3 @@ electron.on('activate-with-no-open-windows', function () {
 electron.on('ready', function (evt) {
 	mainWindow = createWin(onReady);
 });
-
