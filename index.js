@@ -2,6 +2,8 @@
 
 const path = require('path');
 
+const client = require('electron-connect').client;
+
 const electron = require('app');
 const browserWindow = require('electron-window');
 const shell = require('shell');
@@ -52,10 +54,10 @@ electron.on('window-all-closed', function () {
 
 electron.on('activate-with-no-open-windows', function () {
 	if (!mainWindow) {
-		mainWindow = createWin(onReady);
+		client.create(createWin(onReady));
 	}
 });
 
 electron.on('ready', function (evt) {
-	mainWindow = createWin(onReady);
+	client.create(createWin(onReady));
 });
