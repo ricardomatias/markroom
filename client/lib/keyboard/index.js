@@ -7,9 +7,9 @@ var Selection = require('./selections'),
     Styling = require('./stylings'),
     Wrappers = require('./wrappers');
 
-var KeyActions = require('./keyActions');
-
 var EventBus = require('../services/eventBus').eventBus;
+
+var ipc = require_electron('ipc');
 
 
 function Keyboard(writeView) {
@@ -24,26 +24,25 @@ function Keyboard(writeView) {
     wrappers: new Wrappers()
   };
 
-  this.keyActions = new KeyActions([ 'selections', 'snippets', 'stylings', 'wrappers' ]);
+  ipc.on('editor.actions', function(data) {
+    var action = data.action;
 
-  console.log(this.keyActions);
-
-  window.addEventListener('keydown', this.callAction.bind(this));
-
-  // Cancel action with 'Esc'
-  window.addEventListener('keydown', this.cancelEsc.bind(this));
+    this.callAction({
+      type: action.split('.').shift(),
+      val: action.split('.').splice(1, action.length).join('.')
+    });
+  }.bind(this));
 }
 
 inherits(Keyboard, EventBus);
 
 
-Keyboard.prototype.callAction = function(evt) {
+Keyboard.prototype.callAction = function(action) {
   var writeView = this.writeView,
-      textarea = evt.target,
+      textarea = writeView.$el.children[0],
       text = writeView.text.get(),
       selStart = textarea.selectionStart,
       selEnd = textarea.selectionEnd,
-      actionType,
       feature,
       ctx;
 
@@ -51,20 +50,13 @@ Keyboard.prototype.callAction = function(evt) {
     return;
   }
 
-  if (!(actionType = this.keyActions.which(evt))) {
-    return;
-  }
-
-  feature = this.features[actionType.type];
+  feature = this.features[action.type];
 
   if (feature.cannotInsert(text, selStart, selEnd)) {
     return;
   }
 
-  evt.preventDefault();
-  evt.stopPropagation();
-
-  ctx = feature.execute(text, selStart, selEnd, actionType.val);
+  ctx = feature.execute(text, selStart, selEnd, action.val);
 
   feature.update(writeView, textarea, ctx);
 };

@@ -31,7 +31,7 @@ function menus(browserWindow, DESKTOP_PATH) {
 
   var template = [
     {
-      label: 'Electron',
+      label: 'Markroom',
       submenu: [
         {
           label: 'About Markroom',
@@ -48,7 +48,7 @@ function menus(browserWindow, DESKTOP_PATH) {
           type: 'separator'
         },
         {
-          label: 'Hide Electron',
+          label: 'Hide Markroom',
           accelerator: 'Command+H',
           selector: 'hide:'
         },

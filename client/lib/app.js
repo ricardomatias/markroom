@@ -4,7 +4,7 @@ var h = require('virtual-dom/h');
 
 
 var inherits = require('inherits');
-var ipc = require('ipc');
+var ipc = require_electron('ipc');
 
 var Root = require('./components/root');
 
@@ -15,8 +15,6 @@ var WriteView = require('./views/write');
 var ReadView = require('./views/read');
 
 var TextService = require('./services/text');
-
-var KeyActions = require('./keyboard/keyActions');
 
 
 function App($parent) {
@@ -31,28 +29,26 @@ function App($parent) {
   this.readView = new ReadView(this);
   this.rightbar = new Rightbar(this);
 
-  this.keyActions = new KeyActions([ 'main' ]);
-
   this.on('view.changed', this.toggleView.bind(this));
 
   ipc.on('view.toggle', this.toggleView.bind(this));
 
-  window.addEventListener('keydown', function(evt) {
-    var action = this.keyActions.which(evt) || {};
-
-    switch (action.val) {
-      case 'view':
-        evt.preventDefault();
-        this.toggleView();
-        break;
-      case 'color':
-        evt.preventDefault();
-        this.toggleColorMode();
-        break;
-      default:
-        console.log('main..');
-    }
-  }.bind(this));
+  // window.addEventListener('keydown', function(evt) {
+  //   var action = this.keyActions.which(evt) || {};
+  //
+  //   switch (action.val) {
+  //     case 'view':
+  //       evt.preventDefault();
+  //       this.toggleView();
+  //       break;
+  //     case 'color':
+  //       evt.preventDefault();
+  //       this.toggleColorMode();
+  //       break;
+  //     default:
+  //       console.log('main..');
+  //   }
+  // }.bind(this));
 }
 
 inherits(App, Root);

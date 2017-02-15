@@ -1,8 +1,8 @@
 {
   "name": "markroom",
   "productName": "Markroom",
-  "version": "0.0.0",
-  "description": "My geometric app",
+  "version": "1.0.0",
+  "description": "A simple markdown editor",
   "license": "MIT",
   "main": "browser.js",
   "repository": "ricardomatias/markroom",
@@ -38,19 +38,28 @@
     "inherits": "^2.0.1",
     "lodash": "^3.10.1",
     "marked": "^0.3.5",
+    "open": "0.0.5",
     "raf": "^3.1.0",
     "url-regex": "^3.0.0",
     "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
+    "archiver": "^0.16.0",
+    "browserify": "^11.2.0",
     "chai": "^3.2.0",
-    "electron-packager": "^5.0.2",
-    "electron-prebuilt": "^0.31.1",
+    "electron-connect": "^0.3.3",
+    "electron-packager": "^5.1.0",
+    "electron-prebuilt": "^0.33.0",
+    "errorify": "^0.3.1",
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-run": "^1.6.10",
+    "gulp-less": "^3.0.3",
     "gulp-sequence": "^0.4.1",
-    "mocha": "^2.2.5"
+    "gulp-util": "^3.0.6",
+    "mocha": "^2.2.5",
+    "ncp": "^2.0.0",
+    "stringify": "^3.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
   }
 }

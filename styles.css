@@ -71,7 +71,7 @@ body.dark .rightbar .counts {
   justify-content: center;
   align-content: space-between;
   align-items: flex-start;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .leftbar h2.read-header, .leftbar h2.write-header {

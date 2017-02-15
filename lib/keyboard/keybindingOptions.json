@@ -1,0 +1,54 @@
+{
+  "darwin": {
+    "selections": {
+      "Cmd+D": "selections.word",
+      "Cmd+L": "selections.line",
+      "Cmd+A": "selections.all"
+    },
+    "snippets": {
+      "Cmd+K": "snippets.link",
+      "Cmd+Shift+K": "snippets.image"
+    },
+    "stylings": {
+      "Cmd+B": "stylings.bold",
+      "Cmd+I": "stylings.italic",
+      "Cmd+U": "stylings.code.inline",
+      "Cmd+Shift+U": "stylings.code.block"
+    },
+    "wrappers": {
+      "Alt+Shift+Û": "wrappers.brackets.curly",
+      "Alt+Û": "wrappers.brackets.square",
+      "Shift+8": "wrappers.brackets.round"
+    },
+    "main": {
+      "Alt+\t": "main.view",
+      "Alt+Shift+\t": "main.color"
+    }
+  },
+  "linux": {
+    "selections": {
+      "Ctrl+D": "selections.word",
+      "Ctrl+L": "selections.line",
+      "Ctrl+A": "selections.all"
+    },
+    "snippets": {
+      "Ctrl+K": "snippets.link",
+      "Ctrl+Shift+K": "snippets.image"
+    },
+    "stylings": {
+      "Ctrl+B": "stylings.bold",
+      "Ctrl+I": "stylings.italic",
+      "Ctrl+U": "stylings.code.inline",
+      "Ctrl+Shift+U": "stylings.code.block"
+    },
+    "wrappers": {
+      "Alt+Shift+Û": "wrappers.brackets.curly",
+      "Alt+Û": "wrappers.brackets.square",
+      "Shift+8": "wrappers.brackets.round"
+    },
+    "main": {
+      "Alt+\t": "main.view",
+      "Alt+Shift+\t": "main.color"
+    }
+  }
+}

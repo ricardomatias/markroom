@@ -56,9 +56,14 @@ Parser.prototype.parseUrls = function(text) {
 
 Parser.prototype.wrapUrl = function(text, url) {
   var escapedUrl = url.replace(/\?/, '\\?').replace(/\#/, '\\#'),
-      idx = text.match(escapedUrl).index,
+      match = text.match(escapedUrl),
       len = url.length,
+      idx,
       wraping;
+
+  if (match) {
+    idx = match.index;
+  }
 
   if (this.isImage(url)) {
     wraping = this.snippets.image(url);

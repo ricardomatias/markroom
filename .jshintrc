@@ -11,6 +11,7 @@
 	"unused": "vars",
 	"strict": true,
 	"globals": {
+		"require_electron": false,
 		"beforeEach": true,
 		"describe": true,
 		"it": true,

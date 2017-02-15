@@ -1,6 +1,5 @@
 'use strict';
 
-var fs = require('fs');
 var inherits = require('inherits');
 
 var h = require('virtual-dom/h');
@@ -21,8 +20,6 @@ function WriteView(app) {
   this.keyboard = new Keyboard(this);
 
   this.text = app.text;
-
-  this.text.set(fs.readFileSync(__dirname + '/gulp.md', { encoding: 'utf8' }));
 
   function activate(view) {
     if (this === view) {

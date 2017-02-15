@@ -1,26 +1,57 @@
 'use strict';
 
-const path = require('path');
+var path = require('path');
 
-const client = require('electron-connect').client;
+var BrowserWindow = require('electron-window');
+var ConnectClient = require('electron-connect').client;
+var Shell = require('shell');
 
-const electron = require('app');
-const browserWindow = require('electron-window');
-const shell = require('shell');
 
-// report crashes to the Electron project
-require('crash-reporter').start();
+var Platform = require('./app/platform'),
+    Config = require('./app/config'),
+    FileSystem = require('./app/FileSystem');
 
-var mainWindow;
 
-function onReady(win, desktopPath) {
-  const menus = require('./app/menus');
+var app = require('app');
+var config = Config.load(path.join(app.getPath('userData'), 'config.json'));
 
-  menus(win, desktopPath);
+
+/**
+ * The main editor window.
+ */
+app.mainWindow = null;
+
+/**
+ * The electron-connect client, that allows us to start and stop
+ * electron via an API
+ */
+app.connectClient = null;
+
+
+/**
+ * Open a new browser window, if non exists.
+ *
+ * @return {BrowserWindow}
+ */
+function open() {
+
+  if (!app.mainWindow) {
+    app.mainWindow = createEditorWindow();
+    app.connectClient = ConnectClient.create(app.mainWindow);
+  }
+
+  return app.mainWindow;
 }
 
-function createWin(callback) {
-  mainWindow = browserWindow.createWindow({
+
+/**
+ * Create the main window that represents the editor.
+ *
+ * @return {BrowserWindow}
+ */
+function createEditorWindow() {
+
+  var mainWindow = BrowserWindow.createWindow({
     resizable: true,
     title: 'Markroom'
   });
@@ -30,34 +61,39 @@ function createWin(callback) {
   var indexPath = path.resolve(__dirname, 'index.html');
 
   mainWindow.showUrl(indexPath, function () {
-    callback(mainWindow, electron.getPath('userDesktop'));
+    app.emit('editor-open', mainWindow);
   });
 
   mainWindow.webContents.on('will-navigate', function(evt, url) {
     evt.preventDefault();
-
-    shell.openExternal(url);
+    Shell.openExternal(url);
   });
 
   return mainWindow;
 }
 
-electron.on('open-url', function(evt) {
-  evt.preventDefault();
+
+// init default behavior
+
+// app.on('open-url', function(evt) {
+//   evt.preventDefault();
+// });
+
+app.on('activate-with-no-open-windows', function() {
+  open();
 });
 
-electron.on('window-all-closed', function () {
-	if (process.platform !== 'darwin') {
-		electron.quit();
-	}
+app.on('ready', function(evt) {
+  open();
 });
 
-electron.on('activate-with-no-open-windows', function () {
-	if (!mainWindow) {
-		client.create(createWin(onReady));
-	}
+app.on('editor-open', function(mainWindow) {
+  var fileSystem = new FileSystem(mainWindow);
+
+  app.emit('editor-create-menu', mainWindow, fileSystem);
 });
 
-electron.on('ready', function (evt) {
-	client.create(createWin(onReady));
-});
+
+// init platform specific stuff
+
+Platform.init(process.platform, config);

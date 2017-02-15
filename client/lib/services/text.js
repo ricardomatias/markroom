@@ -1,6 +1,6 @@
 'use strict';
 
-var ipc = require('ipc');
+var ipc = require_electron('ipc');
 var inherits = require('inherits');
 
 var findIndex = require('lodash/array/findIndex');
@@ -53,23 +53,32 @@ function Text(app) {
 
   }.bind(this));
 
-  window.addEventListener('keydown', function(evt) {
-    // Redo
-    if (evt.keyCode === 90 && evt.metaKey && evt.shiftKey) {
-      evt.preventDefault();
-      evt.stopPropagation();
-
-      this.redo();
-    }
-
-    // Undo
-    if (evt.keyCode === 90 && evt.metaKey && !evt.shiftKey) {
-      evt.preventDefault();
-      evt.stopPropagation();
-
-      this.undo();
-    }
+  ipc.on('editor.undo', function() {
+    this.undo();
   }.bind(this));
+
+  ipc.on('editor.redo', function() {
+    this.redo();
+  }.bind(this));
+
+
+  // window.addEventListener('keydown', function(evt) {
+  //   // Redo
+  //   if (evt.keyCode === 90 && evt.metaKey && evt.shiftKey) {
+  //     evt.preventDefault();
+  //     evt.stopPropagation();
+  //
+  //     this.redo();
+  //   }
+  //
+  //   // Undo
+  //   if (evt.keyCode === 90 && evt.metaKey && !evt.shiftKey) {
+  //     evt.preventDefault();
+  //     evt.stopPropagation();
+  //
+  //     this.undo();
+  //   }
+  // }.bind(this));
 }
 
 inherits(Text, EventBus);
